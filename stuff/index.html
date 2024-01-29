@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Status</title>
+</head>
+<body>
+
+  <p id="status">Checking network...</p>
+
+  <script>
+    function updateNetworkStatus() {
+      const statusElement = document.getElementById('status');
+
+      if (navigator.onLine) {
+        statusElement.textContent = 'Online';
+      } else {
+        statusElement.textContent = 'Offline';
+      }
+    }
+
+    // Delay the initial check for 5 seconds
+    setTimeout(updateNetworkStatus, 2600);
+
+    // Add event listener for online/offline events
+    window.addEventListener('online', updateNetworkStatus);
+    window.addEventListener('offline', updateNetworkStatus);
+  </script>
+
+</body>
+</html>
